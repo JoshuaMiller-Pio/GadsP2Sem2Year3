@@ -6,6 +6,7 @@ public class GameManager : Singleton<GameManager>
 {
     public Menu P1Menu, P2Menu;
     public Stats P1Stats, P2Stats;
+    public float p1Cash, p2Cash;
     public Sector currentSector;
     public float totaldays = 15 ,currentDay;
     public enum Sector
@@ -39,6 +40,11 @@ public class GameManager : Singleton<GameManager>
             endScreen();
         }
         
+    }
+
+    public void decideBonuses()
+    {
+        //TODO look at food items and apply bouses
     }
 
     public void startDay()
