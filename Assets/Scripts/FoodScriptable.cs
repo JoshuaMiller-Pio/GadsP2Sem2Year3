@@ -16,8 +16,12 @@ public class FoodScriptable : ScriptableObject
         //labgrown
         meat_cube,
         LAB_tacos,
-        LAB_Burger
+        LAB_Burger,
+        
+        shit
     }
+
+    public float price;
     
     public Dishes dishType;
     
