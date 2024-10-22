@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public Menu P1Menu, P2Menu;
+    public List<FoodScriptable> P1Menu = new List<FoodScriptable>() ;
+    public List<FoodScriptable> P2Menu = new List<FoodScriptable>() ;
     public Stats P1Stats, P2Stats;
     public float p1Cash, p2Cash;
     public Sector currentSector;
@@ -79,7 +80,7 @@ public class GameManager : Singleton<GameManager>
 
 public class Menu
 {
-    public List<dishes> dishes = new List<dishes>();
+    public List<FoodScriptable> dishes = new List<FoodScriptable>();
 }
 
 public class Stats

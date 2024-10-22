@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20c8265185966a04ab2be7931ee7b4c9, type: 3}
-  m_Name: mapo_tofu
+  m_Script: {fileID: 11500000, guid: 4b5c92526035a1443b4fba5924e35b5f, type: 3}
+  m_Name: Cheese
   m_EditorClassIdentifier: 
-  price: 35
-  dishType: 2
-  DishSprite: {fileID: 0}
+  ingredient: 13
+  foodSprite: {fileID: 0}

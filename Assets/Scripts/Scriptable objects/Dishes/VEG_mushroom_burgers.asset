@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20c8265185966a04ab2be7931ee7b4c9, type: 3}
-  m_Name: burger
+  m_Name: VEG_mushroom_burgers
   m_EditorClassIdentifier: 
-  price: 5
-  dishType: 3
+  ingredient1: 1
+  ingredient2: 12
+  ingredient3: 7
+  price: 25
+  foodType: 0
+  dishType: 0
   DishSprite: {fileID: 0}

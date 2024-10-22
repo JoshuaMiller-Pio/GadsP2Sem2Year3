@@ -4,12 +4,7 @@ using UnityEngine;
 public class IngredientsScriptable : ScriptableObject
 {
     // Enum to classify the type of food
-    public enum FoodType
-    {
-        LabGrown,
-        Vegan,
-        Meat
-    }
+  
     public enum Ingredient
     {
         Carrot,
@@ -23,11 +18,14 @@ public class IngredientsScriptable : ScriptableObject
         pasta,
         tortilla,
         meat,
-        lab_meat
+        lab_meat,
+        Buns,
+        Cheese,
+        RawMeat
     }
     
   
-    public FoodType foodCategory;  
+      
     public Ingredient ingredient;
     public Sprite foodSprite;  
 
