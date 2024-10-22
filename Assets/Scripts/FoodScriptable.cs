@@ -21,8 +21,20 @@ public class FoodScriptable : ScriptableObject
         shit
     }
 
-    public float price;
+    public enum FoodType
+    {
+        Vegan,
+        Meat,
+        LabGrown,
+        SHIT
+    }
     
+    public IngredientsScriptable.Ingredient ingredient1;
+    public IngredientsScriptable.Ingredient ingredient2;
+    public IngredientsScriptable.Ingredient ingredient3;
+
+    public float price;
+    public FoodType foodType;
     public Dishes dishType;
     
     public Sprite DishSprite;  

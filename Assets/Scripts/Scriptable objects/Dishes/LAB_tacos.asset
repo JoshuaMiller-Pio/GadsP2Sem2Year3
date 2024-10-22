@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c8265185966a04ab2be7931ee7b4c9, type: 3}
   m_Name: LAB_tacos
   m_EditorClassIdentifier: 
+  ingredient1: 9
+  ingredient2: 10
+  ingredient3: 13
   price: 35
+  foodType: 2
   dishType: 7
   DishSprite: {fileID: 0}

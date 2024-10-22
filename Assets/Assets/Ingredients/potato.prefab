@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5247445115919173743}
   m_Layer: 6
   m_Name: potato
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientScript: {fileID: 11400000, guid: 43564092d2f9f6f4a9bfda88b5c95e98, type: 2}
+  isheld: 0
 --- !u!50 &8709511814948983195
 Rigidbody2D:
   serializedVersion: 4

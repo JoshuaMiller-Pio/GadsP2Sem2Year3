@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
     private GameObject heldObject = null; // Reference to the object being held
     public bool isHoldingObject = false;  // Bool to check if the player is holding an object
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
@@ -42,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
         // Handle pickup and drop action
         if (isPlayer1 && Input.GetKeyDown(KeyCode.J))
         {
-            Debug.Log("pressed j");
             HandlePickupOrDrop();
         }
         else if (!isPlayer1 && Input.GetKeyDown(KeyCode.Keypad5))
@@ -76,16 +74,22 @@ public class PlayerMovement : MonoBehaviour
         if (isHoldingObject)  // If the player is holding something, drop it
         {
             DropHeldObject();
+            
         }
         else  // Otherwise, try to pick something up
         {
-            Debug.Log("Cast");
 
             RaycastHit2D hit = Physics2D.Raycast(rb.position, lastDirection, rayDistance, ingredientLayer);
             if (hit.collider != null)  // If the raycast hits an ingredient
             {
-                Debug.Log("HIT");
                 PickupObject(hit.collider.gameObject);
+                if (heldObject.GetComponent<IngredientScript>() != null) 
+                    heldObject.GetComponent<IngredientScript>().isheld = true;
+                if (heldObject.GetComponent<PlateP1>() != null) 
+                    heldObject.GetComponent<PlateP1>().isheld = true;
+                if (heldObject.GetComponent<PlateP2>() != null) 
+                    heldObject.GetComponent<PlateP2>().isheld = true;
+
             }
         }
     }
@@ -108,7 +112,12 @@ public class PlayerMovement : MonoBehaviour
     void DropHeldObject()
     {
         isHoldingObject = false;
-
+        if (heldObject.GetComponent<IngredientScript>() != null) 
+            heldObject.GetComponent<IngredientScript>().isheld = false;
+        if (heldObject.GetComponent<PlateP1>() != null) 
+            heldObject.GetComponent<PlateP1>().isheld = false;
+        if (heldObject.GetComponent<PlateP2>() != null) 
+            heldObject.GetComponent<PlateP2>().isheld = false;
         // Enable the object's collider again
         heldObject.GetComponent<Collider2D>().enabled = true;
 

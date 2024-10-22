@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: SHIT
   m_EditorClassIdentifier: 
   price: 10
+  foodType: 3
   dishType: 9
   DishSprite: {fileID: 0}

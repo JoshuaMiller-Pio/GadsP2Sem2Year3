@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1864440483815132464}
   m_Layer: 6
   m_Name: beans
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientScript: {fileID: 11400000, guid: 9c921ae883d485e48a308a12f7a819bc, type: 2}
+  isheld: 0
 --- !u!50 &739516340374166097
 Rigidbody2D:
   serializedVersion: 4

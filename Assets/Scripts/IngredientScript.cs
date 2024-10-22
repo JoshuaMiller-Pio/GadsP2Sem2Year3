@@ -6,6 +6,7 @@ public class IngredientScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public IngredientsScriptable ingredientScript;
+    public bool isheld;
     void Start()
     {
        // GetComponent<SpriteRenderer>().sprite = ingredientScript.foodSprite;

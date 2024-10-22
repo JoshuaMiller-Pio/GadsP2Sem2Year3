@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20c8265185966a04ab2be7931ee7b4c9, type: 3}
-  m_Name: tacos
+  m_Name: MEAT_pasta
   m_EditorClassIdentifier: 
-  price: 10
-  dishType: 5
+  ingredient1: 13
+  ingredient2: 10
+  ingredient3: 8
+  price: 15
+  foodType: 1
+  dishType: 4
   DishSprite: {fileID: 0}

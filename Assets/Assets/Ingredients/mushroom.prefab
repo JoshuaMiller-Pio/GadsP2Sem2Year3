@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3265392027979126058}
   m_Layer: 6
   m_Name: mushroom
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientScript: {fileID: 11400000, guid: 7b11f021671c26c47bc1bb4b98a03524, type: 2}
+  isheld: 0
 --- !u!50 &2183036556788104989
 Rigidbody2D:
   serializedVersion: 4

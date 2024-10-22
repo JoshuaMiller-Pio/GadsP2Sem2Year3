@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3359128930458426013}
   m_Layer: 6
   m_Name: tofu
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientScript: {fileID: 11400000, guid: 719caa532c0dcf849bba40483e39a63c, type: 2}
+  isheld: 0
 --- !u!50 &5472144672831247243
 Rigidbody2D:
   serializedVersion: 4
