@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: VEG_mushroom_burgers
   m_EditorClassIdentifier: 
   ingredient1: 1
-  ingredient2: 12
-  ingredient3: 7
+  ingredient2: 9
+  ingredient3: 15
   price: 25
   foodType: 0
   dishType: 0

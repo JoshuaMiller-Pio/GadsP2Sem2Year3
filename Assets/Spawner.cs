@@ -27,14 +27,9 @@ public class Spawner : MonoBehaviour
                 // Instantiate the item at the spawner's position
                 currentItem = Instantiate(itemPrefab, spawnPoint, transform.rotation);
                 numSpawned++;
-                if (currentItem.GetComponent<PlateP1>() != null)
+                if (currentItem.GetComponent<Plate>() != null)
                 {
-                    currentItem.GetComponent<PlateP1>().spawner = this;
-                }
-                else if (currentItem.GetComponent<PlateP2>() != null)
-                {
-                    currentItem.GetComponent<PlateP1>().spawner = this;
-
+                    currentItem.GetComponent<Plate>().spawner = this;
                 }
                 else
                 {

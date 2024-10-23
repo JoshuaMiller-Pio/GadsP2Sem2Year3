@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c8265185966a04ab2be7931ee7b4c9, type: 3}
   m_Name: VEG_mapo_tofu
   m_EditorClassIdentifier: 
-  ingredient1: 7
+  ingredient1: 9
   ingredient2: 4
-  ingredient3: 5
+  ingredient3: 6
   price: 35
   foodType: 0
   dishType: 2

@@ -144,6 +144,14 @@ public class PlayerMovement : MonoBehaviour
         isCooking = false;  // Unlock movement after cooking is done
 
         IngredientScript heldScript = heldObject.GetComponent<IngredientScript>();
+        IngredientsScriptable placeholder = new IngredientsScriptable();
+        
+        placeholder.ingredient = heldScript.ingredientScript.ingredient;
+        placeholder.processedIngredient = heldScript.ingredientScript.processedIngredient;
+        placeholder.ProcessedfoodSprite = heldScript.ingredientScript.ProcessedfoodSprite;
+        placeholder.foodSprite = heldScript.ingredientScript.foodSprite;
+        
+        heldScript.ingredientScript = placeholder;
         heldScript.ingredientScript.ingredient = heldScript.ingredientScript.processedIngredient;
         heldObject.GetComponent<SpriteRenderer>().sprite = heldScript.ingredientScript.ProcessedfoodSprite;
         Debug.Log("Cooking Finished");

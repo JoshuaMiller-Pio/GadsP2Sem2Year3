@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c8265185966a04ab2be7931ee7b4c9, type: 3}
   m_Name: LAB_meat_cube
   m_EditorClassIdentifier: 
-  ingredient1: 7
-  ingredient2: 11
-  ingredient3: 6
+  ingredient1: 13
+  ingredient2: 8
+  ingredient3: 9
   price: 30
   foodType: 2
   dishType: 6

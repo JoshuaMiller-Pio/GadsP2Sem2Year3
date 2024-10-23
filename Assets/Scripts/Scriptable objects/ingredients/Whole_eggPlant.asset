@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient: 5
   foodSprite: {fileID: 1000382146, guid: f58faf3b402526747b0f8c927d1e0fe7, type: 3}
+  ProcessedfoodSprite: {fileID: -367224599, guid: f58faf3b402526747b0f8c927d1e0fe7, type: 3}
+  processedIngredient: 4

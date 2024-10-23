@@ -18,7 +18,7 @@ public class GameManager : Singleton<GameManager>
     public TMP_Text timerText, p1statT, p2statT,p2Score,p1Score;  // References to TMP text for player stats
     private float countdownTimer = 300f;  // 5 minutes = 300 seconds
     private bool timerRunning = false;
-
+    public static event Action OnGameStart;
     public enum Sector
     {
         healthy,
@@ -53,6 +53,7 @@ public class GameManager : Singleton<GameManager>
     {
         countdownTimer = 300;  // Reset to 5 minutes
         timerRunning = true;
+        OnGameStart?.Invoke();
     }
 
     public void UpdateTimer()

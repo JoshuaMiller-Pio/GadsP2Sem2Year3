@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5c92526035a1443b4fba5924e35b5f, type: 3}
   m_Name: Buns
   m_EditorClassIdentifier: 
-  ingredient: 12
-  foodSprite: {fileID: 0}
+  ingredient: 15
+  foodSprite: {fileID: 782481053, guid: 117e26d07cd9f1e41a751be82ffc4a12, type: 3}
+  ProcessedfoodSprite: {fileID: 0}
+  processedIngredient: 0
