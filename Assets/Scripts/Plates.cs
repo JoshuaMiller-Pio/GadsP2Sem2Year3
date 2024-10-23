@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlateP1 : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlateP1 : MonoBehaviour
     private IngredientsScriptable.Ingredient ingredient2;
     private IngredientsScriptable.Ingredient ingredient3;
     public FoodScriptable food;
+    public Spawner spawner;
     private int ingredientCount = 0; // Track how many ingredients have been added
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -82,6 +84,11 @@ public class PlateP1 : MonoBehaviour
 
         // Reset the plate for new ingredients after creating the dish
         ResetPlate();
+    }
+
+    private void OnDestroy()
+    {
+        spawner.removeFromlist();
     }
 
     // Method to reset the plate

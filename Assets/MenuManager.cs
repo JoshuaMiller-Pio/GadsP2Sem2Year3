@@ -42,7 +42,7 @@ public class MenuManager : MonoBehaviour
             else
             {
                 GameManager.Instance.P2Menu.Add(mdish);
-
+        
             }
     }
 
@@ -60,6 +60,7 @@ public class MenuManager : MonoBehaviour
         {
             p2Selected = true;
             p2Canvas.gameObject.SetActive(false);
+            GameManager.Instance.startDay();
 
         }
     }
@@ -88,11 +89,14 @@ public class MenuManager : MonoBehaviour
         {
             p1AddItem(Mdishes[7]);
             updateUI("V burgers");
+            GameManager.Instance.P1Stats.Vegan++;
         }
         else
         {
             p2AddItem(Mdishes[7]);
             updateUI("V burgers");
+            GameManager.Instance.P2Stats.Vegan++;
+
         }
     }
 
@@ -102,11 +106,15 @@ public class MenuManager : MonoBehaviour
         {
             p1AddItem(Mdishes[8]);
             updateUI("salad");
+            GameManager.Instance.P1Stats.Vegan++;
+
         }
         else
         {
             p2AddItem(Mdishes[8]);
             updateUI("salad");
+            GameManager.Instance.P2Stats.Vegan++;
+
         }
     }
 
@@ -116,11 +124,15 @@ public class MenuManager : MonoBehaviour
         {
             p1AddItem(Mdishes[6]);
             updateUI("mapo tofu");
+            GameManager.Instance.P1Stats.Vegan++;
+
         }
         else
         {
             p2AddItem(Mdishes[6]);
             updateUI("mapo tofu");
+            GameManager.Instance.P2Stats.Vegan++;
+
         }
     }
 
@@ -130,11 +142,15 @@ public class MenuManager : MonoBehaviour
         {
             p1AddItem(Mdishes[0]);
             updateUI("burger");
+            GameManager.Instance.P1Stats.Meat++;
+
         }
         else
         {
             p2AddItem(Mdishes[0]);
             updateUI("burger");
+            GameManager.Instance.P2Stats.Meat++;
+
         }
     }
 
@@ -144,11 +160,15 @@ public class MenuManager : MonoBehaviour
         {
             p1AddItem(Mdishes[1]);
             updateUI("pasta");
+            GameManager.Instance.P1Stats.Meat++;
+
         }
         else
         {
             p2AddItem(Mdishes[1]);
             updateUI("pasta");
+            GameManager.Instance.P2Stats.Meat++;
+
         }
     }
 
@@ -158,11 +178,15 @@ public class MenuManager : MonoBehaviour
         {
             p1AddItem(Mdishes[2]);
             updateUI("tacos");
+            GameManager.Instance.P1Stats.Meat++;
+
         }
         else
         {
             p2AddItem(Mdishes[2]);
             updateUI("tacos");
+            GameManager.Instance.P2Stats.Meat++;
+
         }
     }
 
@@ -172,11 +196,15 @@ public class MenuManager : MonoBehaviour
         {
             p1AddItem(Mdishes[4]);
             updateUI("meat cube");
+            GameManager.Instance.P1Stats.Lab++;
+
         }
         else
         {
             p2AddItem(Mdishes[4]);
             updateUI("meat cube");
+            GameManager.Instance.P2Stats.Lab++;
+
         }
     }
 
@@ -186,11 +214,15 @@ public class MenuManager : MonoBehaviour
         {
             p1AddItem(Mdishes[5]);
             updateUI("LAB tacos");
+            GameManager.Instance.P1Stats.Lab++;
+
         }
         else
         {
             p2AddItem(Mdishes[5]);
             updateUI("LAB tacos");
+            GameManager.Instance.P2Stats.Lab++;
+
         }
     }
 
@@ -200,11 +232,15 @@ public class MenuManager : MonoBehaviour
         {
             p1AddItem(Mdishes[3]);
             updateUI("LAB Burger");
+            GameManager.Instance.P1Stats.Lab++;
+
         }
         else
         {
             p2AddItem(Mdishes[3]);
             updateUI("LAB Burger");
+            GameManager.Instance.P2Stats.Lab++;
+
         }
     }
 }

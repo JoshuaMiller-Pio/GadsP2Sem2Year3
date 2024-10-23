@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientScript: {fileID: 11400000, guid: 9c921ae883d485e48a308a12f7a819bc, type: 2}
   isheld: 0
+  spawner: {fileID: 0}
 --- !u!50 &739516340374166097
 Rigidbody2D:
   serializedVersion: 4
