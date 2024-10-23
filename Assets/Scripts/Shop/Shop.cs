@@ -1,27 +1,36 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool p1Shop;  // Determine if it's Player 1's shop
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Dish"))
         {
-            
-        }
-    }
+            // Get the dish type from the Plate's food (ScriptableObject)
+            FoodScriptable.Dishes dishType = other.gameObject.GetComponent<Plate>().food.dishType;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            // Add the dish price to the correct player's cash
+            if (p1Shop)
+            {
+                GameManager.Instance.p1Cash += other.gameObject.GetComponent<Plate>().food.price;
+
+                // Directly call the OrderManager to complete Player 1's order
+                OrderManager.Instance.CompleteOrderP1(dishType);
+            }
+            else
+            {
+                GameManager.Instance.p2Cash += other.gameObject.GetComponent<Plate>().food.price;
+
+                // Directly call the OrderManager to complete Player 2's order
+                OrderManager.Instance.CompleteOrderP2(dishType);
+            }
+
+            // Destroy the dish GameObject once it's been submitted
+            Destroy(other.gameObject);
+        }
     }
 }

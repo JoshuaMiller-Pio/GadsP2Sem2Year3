@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c8265185966a04ab2be7931ee7b4c9, type: 3}
   m_Name: MEAT_tacos
   m_EditorClassIdentifier: 
-  ingredient1: 9
-  ingredient2: 10
-  ingredient3: 13
+  ingredient1: 11
+  ingredient2: 12
+  ingredient3: 16
   price: 10
   foodType: 1
   dishType: 5

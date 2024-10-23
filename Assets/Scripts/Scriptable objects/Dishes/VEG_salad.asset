@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: VEG_salad
   m_EditorClassIdentifier: 
   ingredient1: 4
-  ingredient2: 5
+  ingredient2: 6
   ingredient3: 0
   price: 20
   foodType: 0

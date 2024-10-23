@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
+        numSpawned = 0;
         SpawnItem();  // Spawn the first item when the game starts
     }
 
@@ -26,14 +27,9 @@ public class Spawner : MonoBehaviour
                 // Instantiate the item at the spawner's position
                 currentItem = Instantiate(itemPrefab, spawnPoint, transform.rotation);
                 numSpawned++;
-                if (currentItem.GetComponent<PlateP1>() != null)
+                if (currentItem.GetComponent<Plate>() != null)
                 {
-                    currentItem.GetComponent<PlateP1>().spawner = this;
-                }
-                else if (currentItem.GetComponent<PlateP2>() != null)
-                {
-                    currentItem.GetComponent<PlateP1>().spawner = this;
-
+                    currentItem.GetComponent<Plate>().spawner = this;
                 }
                 else
                 {
@@ -64,7 +60,6 @@ public class Spawner : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("ah");
         if(other.gameObject == currentItem)
         {
             OnItemPickedUp();

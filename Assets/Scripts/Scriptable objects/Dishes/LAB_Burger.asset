@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c8265185966a04ab2be7931ee7b4c9, type: 3}
   m_Name: LAB_Burger
   m_EditorClassIdentifier: 
-  ingredient1: 12
-  ingredient2: 6
-  ingredient3: 13
+  ingredient1: 13
+  ingredient2: 15
+  ingredient3: 8
   price: 35
   foodType: 2
   dishType: 8

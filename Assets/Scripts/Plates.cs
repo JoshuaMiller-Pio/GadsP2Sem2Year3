@@ -1,18 +1,18 @@
 using System;
 using UnityEngine;
 
-public class PlateP1 : MonoBehaviour
+public class Plate : MonoBehaviour
 {
-    public bool isPlayer1 = true;  // Determine which player is interacting with the plate
+    public bool isPlayer1 = false;  // Determine which player is interacting with the plate
     public bool isheld = false;
 
     // Ingredients added to the plate (in exact order)
-    private IngredientsScriptable.Ingredient ingredient1;
-    private IngredientsScriptable.Ingredient ingredient2;
-    private IngredientsScriptable.Ingredient ingredient3;
+    public IngredientsScriptable.Ingredient ingredient1;
+    public IngredientsScriptable.Ingredient ingredient2;
+    public IngredientsScriptable.Ingredient ingredient3;
     public FoodScriptable food;
     public Spawner spawner;
-    private int ingredientCount = 0; // Track how many ingredients have been added
+    public int ingredientCount = 0; // Track how many ingredients have been added
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -73,6 +73,9 @@ public class PlateP1 : MonoBehaviour
             {
                 createdDish = dish.dishType;
                 Debug.Log("Dish Created: " + createdDish);
+                food = dish;
+                gameObject.GetComponent<SpriteRenderer>().sprite = food.DishSprite;
+                gameObject.tag = "Dish";
                 break;
             }
         }

@@ -8,6 +8,8 @@ TagManager:
   - Ingredient
   - Table
   - Spawner
+  - Stove
+  - cutting board
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - Water
   - UI
   - Ingredient
-  - 
-  - 
+  - stove
+  - cutter
   - 
   - 
   - 
