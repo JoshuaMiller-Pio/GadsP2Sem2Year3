@@ -9,10 +9,10 @@ public class IngredientScript : MonoBehaviour
     public IngredientsScriptable ingredientScript;
     public bool isheld ,destroyed = false;
     public Spawner spawner;
-
+    public bool canCook, canChop;
     void Start()
     {
-       // GetComponent<SpriteRenderer>().sprite = ingredientScript.foodSprite;
+        GetComponent<SpriteRenderer>().sprite = ingredientScript.foodSprite;
     }
 
     private void FixedUpdate()

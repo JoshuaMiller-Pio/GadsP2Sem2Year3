@@ -12,13 +12,16 @@ public class IngredientsScriptable : ScriptableObject
         patato,
         flour,
         eggPlant,
+        wholeeggPlant,
         mushroom,
+        wholemushroom,
         eggs,
         tofu,
         pasta,
         tortilla,
         meat,
         lab_meat,
+        raw_lMeat,
         Buns,
         Cheese,
         RawMeat
@@ -28,7 +31,8 @@ public class IngredientsScriptable : ScriptableObject
       
     public Ingredient ingredient;
     public Sprite foodSprite;  
-
+    public Sprite ProcessedfoodSprite;  
+    public Ingredient processedIngredient;
 
 
     

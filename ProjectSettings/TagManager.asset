@@ -9,6 +9,7 @@ TagManager:
   - Table
   - Spawner
   - Stove
+  - cutting board
   layers:
   - Default
   - TransparentFX

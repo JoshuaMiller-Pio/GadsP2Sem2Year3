@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b5c92526035a1443b4fba5924e35b5f, type: 3}
-  m_Name: meat
+  m_Name: RAW_lab_meat
   m_EditorClassIdentifier: 
-  ingredient: 10
-  foodSprite: {fileID: -960285845, guid: f58faf3b402526747b0f8c927d1e0fe7, type: 3}
+  ingredient: 14
+  foodSprite: {fileID: -1239120342, guid: f58faf3b402526747b0f8c927d1e0fe7, type: 3}

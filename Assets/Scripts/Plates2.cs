@@ -10,6 +10,7 @@ public class PlateP2 : MonoBehaviour
     private IngredientsScriptable.Ingredient ingredient2;
     private IngredientsScriptable.Ingredient ingredient3;
     public FoodScriptable food;
+    public bool canChop, canCook;
     private int ingredientCount = 0; // Track how many ingredients have been added
 
     private void OnTriggerEnter2D(Collider2D other)

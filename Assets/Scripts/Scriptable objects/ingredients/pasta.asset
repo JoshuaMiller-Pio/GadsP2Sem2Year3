@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5c92526035a1443b4fba5924e35b5f, type: 3}
   m_Name: pasta
   m_EditorClassIdentifier: 
-  foodCategory: 2
   ingredient: 8
-  foodSprite: {fileID: 0}
+  foodSprite: {fileID: -1823098506, guid: f58faf3b402526747b0f8c927d1e0fe7, type: 3}

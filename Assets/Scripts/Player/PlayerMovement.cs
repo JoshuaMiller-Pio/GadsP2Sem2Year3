@@ -1,10 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;   // Speed of movement
-    public float rayDistance = 1.3f; // Raycast distance for pickup detection
+    public float rayDistance = 1.3f; // Raycast distance for interaction detection
     public LayerMask ingredientLayer; // LayerMask to detect ingredients
+    public LayerMask stoveLayer;      // LayerMask for stoves
+    public LayerMask choppingBoardLayer; // LayerMask for chopping boards
 
     public bool isPlayer1 = true;  // Toggle to check which player this script is for
     private Rigidbody2D rb;
@@ -13,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     private GameObject heldObject = null; // Reference to the object being held
     public bool isHoldingObject = false;  // Bool to check if the player is holding an object
+    private bool isCooking = false;  // Bool to check if the player is cooking
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
@@ -20,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (isCooking) return; // Prevent movement if player is cooking
+
         // Get input for movement (Player 1 uses WASD, Player 2 uses arrow keys)
         if (isPlayer1)
         {
@@ -47,10 +54,22 @@ public class PlayerMovement : MonoBehaviour
         {
             HandlePickupOrDrop();
         }
+
+        // Handle cooking and chopping actions
+        if (isPlayer1 && Input.GetKeyDown(KeyCode.K))  // Player 1 presses 'K'
+        {
+            HandleCookingOrChopping();
+        }
+        else if (!isPlayer1 && Input.GetKeyDown(KeyCode.Keypad6))  // Player 2 presses 'Num6'
+        {
+            HandleCookingOrChopping();
+        }
     }
 
     void FixedUpdate()
     {
+        if (isCooking) return; // Prevent movement if player is cooking
+
         // Move the player based on input
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
@@ -70,28 +89,64 @@ public class PlayerMovement : MonoBehaviour
 
     void HandlePickupOrDrop()
     {
-        
         if (isHoldingObject)  // If the player is holding something, drop it
         {
             DropHeldObject();
-            
         }
         else  // Otherwise, try to pick something up
         {
-
             RaycastHit2D hit = Physics2D.Raycast(rb.position, lastDirection, rayDistance, ingredientLayer);
             if (hit.collider != null)  // If the raycast hits an ingredient
             {
                 PickupObject(hit.collider.gameObject);
                 if (heldObject.GetComponent<IngredientScript>() != null) 
                     heldObject.GetComponent<IngredientScript>().isheld = true;
-                if (heldObject.GetComponent<PlateP1>() != null) 
-                    heldObject.GetComponent<PlateP1>().isheld = true;
-                if (heldObject.GetComponent<PlateP2>() != null) 
-                    heldObject.GetComponent<PlateP2>().isheld = true;
-
             }
         }
+    }
+
+    void HandleCookingOrChopping()
+    {
+        if (heldObject != null)
+        {
+            RaycastHit2D hitStove = Physics2D.Raycast(rb.position, lastDirection, rayDistance, stoveLayer);
+            RaycastHit2D hitchopper = Physics2D.Raycast(rb.position, lastDirection, rayDistance, choppingBoardLayer);
+            IngredientScript heldScript = heldObject.GetComponent<IngredientScript>();
+            if (hitchopper.collider != null && heldScript.canChop  && heldScript != null)  
+            {
+                StartCooking();  
+            }
+            if (hitStove.collider != null&& heldScript.canCook&& heldScript != null )  
+            {
+                StartCooking();  
+            }
+        }
+    }
+
+    // Method to start cooking and lock movement for 5 seconds
+    public void StartCooking()
+    {
+        if (!isCooking) // Only start cooking if not already cooking
+        {
+            Debug.Log("Started Cooking");
+            StartCoroutine(CookingCoroutine());
+        }
+    }
+
+    // Coroutine to handle the 5-second cooking process
+    IEnumerator CookingCoroutine()
+    {
+        isCooking = true;  // Lock movement
+
+        // Simulate cooking by waiting for 5 seconds
+        yield return new WaitForSeconds(5f);
+
+        isCooking = false;  // Unlock movement after cooking is done
+
+        IngredientScript heldScript = heldObject.GetComponent<IngredientScript>();
+        heldScript.ingredientScript.ingredient = heldScript.ingredientScript.processedIngredient;
+        heldObject.GetComponent<SpriteRenderer>().sprite = heldScript.ingredientScript.ProcessedfoodSprite;
+        Debug.Log("Cooking Finished");
     }
 
     void PickupObject(GameObject obj)
@@ -99,10 +154,8 @@ public class PlayerMovement : MonoBehaviour
         isHoldingObject = true;
         heldObject = obj;
 
-        // Disable the ingredient's collider so it doesn't interfere with movement
         heldObject.GetComponent<Collider2D>().enabled = false;
 
-        // Optionally disable gravity or other physics interactions
         if (heldObject.GetComponent<Rigidbody2D>() != null)
         {
             heldObject.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -114,24 +167,17 @@ public class PlayerMovement : MonoBehaviour
         isHoldingObject = false;
         if (heldObject.GetComponent<IngredientScript>() != null) 
             heldObject.GetComponent<IngredientScript>().isheld = false;
-        if (heldObject.GetComponent<PlateP1>() != null) 
-            heldObject.GetComponent<PlateP1>().isheld = false;
-        if (heldObject.GetComponent<PlateP2>() != null) 
-            heldObject.GetComponent<PlateP2>().isheld = false;
-        // Enable the object's collider again
+
         heldObject.GetComponent<Collider2D>().enabled = true;
 
-        // Place the object at the end of the raycast (in front of the player)
         Vector2 dropPosition = rb.position + lastDirection * rayDistance;
         heldObject.transform.position = dropPosition;
 
-        // Re-enable physics interactions
         if (heldObject.GetComponent<Rigidbody2D>() != null)
         {
             heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
         }
 
-        // Clear the reference to the held object
         heldObject = null;
     }
 }

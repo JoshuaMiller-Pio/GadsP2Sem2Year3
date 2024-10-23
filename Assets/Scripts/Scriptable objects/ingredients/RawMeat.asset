@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RawMeat
   m_EditorClassIdentifier: 
   ingredient: 14
-  foodSprite: {fileID: 0}
+  foodSprite: {fileID: 1976799622, guid: f58faf3b402526747b0f8c927d1e0fe7, type: 3}
