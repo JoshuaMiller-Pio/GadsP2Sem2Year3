@@ -8,6 +8,7 @@ TagManager:
   - Ingredient
   - Table
   - Spawner
+  - Stove
   layers:
   - Default
   - TransparentFX

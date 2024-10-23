@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
+        numSpawned = 0;
         SpawnItem();  // Spawn the first item when the game starts
     }
 
@@ -64,7 +65,6 @@ public class Spawner : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("ah");
         if(other.gameObject == currentItem)
         {
             OnItemPickedUp();

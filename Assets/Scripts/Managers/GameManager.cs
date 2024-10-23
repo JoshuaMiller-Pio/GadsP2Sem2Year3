@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class GameManager : Singleton<GameManager>
     public Sector currentSector;
     public float totaldays = 15, currentDay;
     public Canvas endRoundCanvas;  // Reference to the end-round canvas
-    public TMP_Text timerText, p1statT, p2statT;  // References to TMP text for player stats
+    public TMP_Text timerText, p1statT, p2statT,p2Score,p1Score;  // References to TMP text for player stats
     private float countdownTimer = 300f;  // 5 minutes = 300 seconds
     private bool timerRunning = false;
 
@@ -39,6 +40,13 @@ public class GameManager : Singleton<GameManager>
         {
             UpdateTimer();
         }
+       
+    }
+
+    private void FixedUpdate()
+    {
+        p1Score.text = "P1 SCORE: " + p1Cash;  
+        p2Score.text = "P2 SCORE: " + p2Cash;  
     }
 
     public void StartTimer()
@@ -84,7 +92,7 @@ public class GameManager : Singleton<GameManager>
     {
         //TODO: update environment
     }
-
+    
     public void decideBonusesP1(float cash, bool deserved)
     {
         if (deserved)
