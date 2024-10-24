@@ -167,6 +167,12 @@ MonoBehaviour:
   ingredientLayer:
     serializedVersion: 2
     m_Bits: 64
+  stoveLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  choppingBoardLayer:
+    serializedVersion: 2
+    m_Bits: 0
   isPlayer1: 1
   isHoldingObject: 0
 --- !u!1 &2393510126752026426
