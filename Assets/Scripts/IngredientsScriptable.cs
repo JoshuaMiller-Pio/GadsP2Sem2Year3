@@ -24,7 +24,9 @@ public class IngredientsScriptable : ScriptableObject
         raw_lMeat,
         Buns,
         Cheese,
-        RawMeat
+        RawMeat,
+        
+        uncookedPasta
     }
     
   

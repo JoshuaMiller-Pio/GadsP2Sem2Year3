@@ -18,4 +18,4 @@ MonoBehaviour:
   price: 15
   foodType: 1
   dishType: 4
-  DishSprite: {fileID: 0}
+  DishSprite: {fileID: -1602127750, guid: 96492c32a9766ec4281a236e92f67d8c, type: 3}
