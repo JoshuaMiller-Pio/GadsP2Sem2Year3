@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: beans
   m_EditorClassIdentifier: 
   ingredient: 1
-  foodSprite: {fileID: 782481053, guid: 117e26d07cd9f1e41a751be82ffc4a12, type: 3}
+  foodSprite: {fileID: -173620539, guid: d428904cfac1eb246835c5fee36a489a, type: 3}
   ProcessedfoodSprite: {fileID: 0}
   processedIngredient: 0

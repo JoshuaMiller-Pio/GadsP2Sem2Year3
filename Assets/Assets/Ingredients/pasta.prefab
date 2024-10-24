@@ -103,7 +103,7 @@ MonoBehaviour:
   isheld: 0
   destroyed: 0
   spawner: {fileID: 0}
-  canCook: 0
+  canCook: 1
   canChop: 0
 --- !u!50 &8879666793434237253
 Rigidbody2D:

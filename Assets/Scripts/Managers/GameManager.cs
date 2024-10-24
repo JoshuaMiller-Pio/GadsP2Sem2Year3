@@ -13,22 +13,27 @@ public class GameManager : Singleton<GameManager>
     public float p1Cash = 0, p2Cash = 0;
     public float p1TCash = 0, p2TCash = 0;
     public Sector currentSector;
+    public GameObject p1G, p2G, p1S, p2S;
     public float totaldays = 15, currentDay;
     public Canvas endRoundCanvas;  // Reference to the end-round canvas
     public TMP_Text timerText, p1statT, p2statT,p2Score,p1Score;  // References to TMP text for player stats
     private float countdownTimer = 300f;  // 5 minutes = 300 seconds
     private bool timerRunning = false;
+    public Sprite goodg, badg, okayg;
+    public Sprite goods, bads, okays;
     public static event Action OnGameStart;
     public enum Sector
     {
-        healthy,
-        unhealthy,
-        balanced
+        Vegan,
+        Meat,
+        Lab
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        currentSector = Sector.Meat;
         currentDay = 1;
     }
 
@@ -39,6 +44,7 @@ public class GameManager : Singleton<GameManager>
         if (timerRunning)
         {
             UpdateTimer();
+            
         }
        
     }
@@ -91,23 +97,54 @@ public class GameManager : Singleton<GameManager>
 
     public void populateEnviroment()
     {
-        //TODO: update environment
+        p1G.GetComponent<SpriteRenderer>().sprite = okayg;
+        p2G.GetComponent<SpriteRenderer>().sprite = okayg ;
+     //   p1S.GetComponent<SpriteRenderer>().sprite = okays;
+     // p2S.GetComponent<SpriteRenderer>().sprite = okays;
     }
     
-    public void decideBonusesP1(float cash, bool deserved)
+    public void decideBonusesP1(float cash, FoodScriptable.FoodType type)
     {
-        if (deserved)
+        if (currentSector == Sector.Meat  && type == FoodScriptable.FoodType.Meat)
         {
             p1Cash += 1.2f * cash;
         }
+        else if (currentSector == Sector.Lab && type == FoodScriptable.FoodType.LabGrown)
+        {
+            p1Cash += 1.2f * cash;
+        }
+        else if (currentSector == Sector.Vegan && type == FoodScriptable.FoodType.Vegan)
+        {
+            p1Cash += 1.2f * cash;
+        }
+        else
+        {
+            p1Cash +=  cash;
+        }
+            
+        
     }
 
-    public void decideBonusesP2(float cash, bool deserved)
+    public void decideBonusesP2(float cash, FoodScriptable.FoodType type)
     {
-        if (deserved)
+        if (currentSector == Sector.Meat  && type == FoodScriptable.FoodType.Meat)
         {
             p2Cash += 1.2f * cash;
         }
+        else if (currentSector == Sector.Lab && type == FoodScriptable.FoodType.LabGrown)
+        {
+            p2Cash += 1.2f * cash;
+        }
+        else if (currentSector == Sector.Vegan && type == FoodScriptable.FoodType.Vegan)
+        {
+            p2Cash += 1.2f * cash;
+        }
+        else
+        {
+            p2Cash +=  cash;
+        }
+            
+        
     }
 
     public void startDay()
@@ -128,6 +165,11 @@ public class GameManager : Singleton<GameManager>
         startGame();
     }
 
+    public void startNewGame()
+    {
+        startDay();
+        RestartDay();
+    }
     public void endScreen()
     {
         // Show the end-round stats when the day ends
@@ -157,16 +199,107 @@ public class GameManager : Singleton<GameManager>
 
     public void checkSector()
     {
+        int tStatsP1 = 0;
+        int tStatsP2 = 0;
+        tStatsP1 += P1Stats.Meat + P1Stats.Lab + P1Stats.Vegan;
+        tStatsP2 += P2Stats.Meat + P2Stats.Lab + P2Stats.Vegan;
         switch (currentDay)
         {
             case 6:
-                currentSector = Sector.balanced;
+                currentSector = Sector.Lab;
+                if (P1Stats.Meat/tStatsP1*100 > P1Stats.Lab && P1Stats.Meat/tStatsP1*100 > P1Stats.Vegan )
+                {
+                    p1G.GetComponent<SpriteRenderer>().sprite = badg;
+                    
+                }
+                else if (P1Stats.Vegan/tStatsP1*100 > P1Stats.Lab && P1Stats.Meat/tStatsP1*100 > P1Stats.Meat )
+                {
+                    
+                    p1G.GetComponent<SpriteRenderer>().sprite = goodg;
+                }
+                else
+                {
+                    p1G.GetComponent<SpriteRenderer>().sprite = okayg;
+                }
+                
+                if (P2Stats.Meat/tStatsP2*100 > P2Stats.Lab && P2Stats.Meat/tStatsP2*100 > P2Stats.Vegan )
+                {
+                    p2G.GetComponent<SpriteRenderer>().sprite = badg;
+                    
+                }
+                else if (P2Stats.Vegan/tStatsP2*100 > P2Stats.Lab && P2Stats.Meat/tStatsP2*100 > P2Stats.Meat )
+                {
+                    
+                    p2G.GetComponent<SpriteRenderer>().sprite = goodg;
+                }
+                else
+                {
+                    p2G.GetComponent<SpriteRenderer>().sprite = okayg;
+                }
                 break;
             case 11:
-                currentSector = Sector.healthy;
+                currentSector = Sector.Vegan;
+                if (P1Stats.Meat/tStatsP1*100 > P1Stats.Lab && P1Stats.Meat/tStatsP1*100 > P1Stats.Vegan )
+                {
+                    p1G.GetComponent<SpriteRenderer>().sprite = badg;
+                    
+                }
+                else if (P1Stats.Vegan/tStatsP1*100 > P1Stats.Lab && P1Stats.Meat/tStatsP1*100 > P1Stats.Meat )
+                {
+                    
+                    p1G.GetComponent<SpriteRenderer>().sprite = goodg;
+                }
+                else
+                {
+                    p1G.GetComponent<SpriteRenderer>().sprite = okayg;
+                }
+                
+                if (P2Stats.Meat/tStatsP2*100 > P2Stats.Lab && P2Stats.Meat/tStatsP2*100 > P2Stats.Vegan )
+                {
+                    p2G.GetComponent<SpriteRenderer>().sprite = badg;
+                    
+                }
+                else if (P2Stats.Vegan/tStatsP2*100 > P2Stats.Lab && P2Stats.Meat/tStatsP2*100 > P2Stats.Meat )
+                {
+                    
+                    p2G.GetComponent<SpriteRenderer>().sprite = goodg;
+                }
+                else
+                {
+                    p2G.GetComponent<SpriteRenderer>().sprite = okayg;
+                }
                 break;
             default:
-                currentSector = Sector.unhealthy;
+                currentSector = Sector.Meat;
+                if (P1Stats.Meat/tStatsP1*100 > P1Stats.Lab && P1Stats.Meat/tStatsP1*100 > P1Stats.Vegan )
+                {
+                    p1G.GetComponent<SpriteRenderer>().sprite = badg;
+                    
+                }
+                else if (P1Stats.Vegan/tStatsP1*100 > P1Stats.Lab && P1Stats.Meat/tStatsP1*100 > P1Stats.Meat )
+                {
+                    
+                    p1G.GetComponent<SpriteRenderer>().sprite = goodg;
+                }
+                else
+                {
+                    p1G.GetComponent<SpriteRenderer>().sprite = okayg;
+                }
+                
+                if (P2Stats.Meat/tStatsP2*100 > P2Stats.Lab && P2Stats.Meat/tStatsP2*100 > P2Stats.Vegan )
+                {
+                    p2G.GetComponent<SpriteRenderer>().sprite = badg;
+                    
+                }
+                else if (P2Stats.Vegan/tStatsP2*100 > P2Stats.Lab && P2Stats.Meat/tStatsP2*100 > P2Stats.Meat )
+                {
+                    
+                    p2G.GetComponent<SpriteRenderer>().sprite = goodg;
+                }
+                else
+                {
+                    p2G.GetComponent<SpriteRenderer>().sprite = okayg;
+                }
                 break;
         }
     }

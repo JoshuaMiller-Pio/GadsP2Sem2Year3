@@ -16,15 +16,41 @@ public class Shop : MonoBehaviour
             // Add the dish price to the correct player's cash
             if (p1Shop)
             {
-                GameManager.Instance.p1Cash += other.gameObject.GetComponent<Plate>().food.price;
-
+                GameManager.Instance.decideBonusesP1(other.gameObject.GetComponent<Plate>().food.price, other.gameObject.GetComponent<Plate>().food.foodType);
+                if (other.gameObject.GetComponent<Plate>().food.foodType == FoodScriptable.FoodType.Meat )
+                {
+                    GameManager.Instance.P1Stats.Meat++;
+                }
+                else if (other.gameObject.GetComponent<Plate>().food.foodType == FoodScriptable.FoodType.Vegan )
+                {
+                    
+                    GameManager.Instance.P1Stats.Vegan++;
+                }
+                else
+                {
+                    GameManager.Instance.P1Stats.Lab++;
+                    
+                }
                 // Directly call the OrderManager to complete Player 1's order
                 OrderManager.Instance.CompleteOrderP1(dishType);
             }
             else
             {
-                GameManager.Instance.p2Cash += other.gameObject.GetComponent<Plate>().food.price;
-
+                GameManager.Instance.decideBonusesP2(other.gameObject.GetComponent<Plate>().food.price, other.gameObject.GetComponent<Plate>().food.foodType);
+                if (other.gameObject.GetComponent<Plate>().food.foodType == FoodScriptable.FoodType.Meat )
+                {
+                    GameManager.Instance.P2Stats.Meat++;
+                }
+                else if (other.gameObject.GetComponent<Plate>().food.foodType == FoodScriptable.FoodType.Vegan )
+                {
+                    
+                    GameManager.Instance.P2Stats.Vegan++;
+                }
+                else
+                {
+                    GameManager.Instance.P2Stats.Lab++;
+                    
+                }
                 // Directly call the OrderManager to complete Player 2's order
                 OrderManager.Instance.CompleteOrderP2(dishType);
             }

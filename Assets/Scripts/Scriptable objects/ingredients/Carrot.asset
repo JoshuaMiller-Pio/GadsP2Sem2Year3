@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Carrot
   m_EditorClassIdentifier: 
   ingredient: 0
-  foodSprite: {fileID: 782481053, guid: 117e26d07cd9f1e41a751be82ffc4a12, type: 3}
+  foodSprite: {fileID: 1703476095, guid: c9a626d3bb3fcc746b75bbc50b6b50f5, type: 3}
   ProcessedfoodSprite: {fileID: 0}
   processedIngredient: 0
