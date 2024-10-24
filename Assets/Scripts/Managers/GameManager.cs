@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;  // Import TextMeshPro namespace
+using TMPro;  
 
 public class GameManager : Singleton<GameManager>
 {
@@ -15,9 +15,9 @@ public class GameManager : Singleton<GameManager>
     public Sector currentSector;
     public GameObject p1G, p2G, p1S, p2S;
     public float totaldays = 15, currentDay;
-    public Canvas endRoundCanvas;  // Reference to the end-round canvas
-    public TMP_Text timerText, p1statT, p2statT,p2Score,p1Score;  // References to TMP text for player stats
-    private float countdownTimer = 300f;  // 5 minutes = 300 seconds
+    public Canvas endRoundCanvas;  
+    public TMP_Text timerText, p1statT, p2statT,p2Score,p1Score;  
+    private float countdownTimer = 300f;  
     private bool timerRunning = false;
     public Sprite goodg, badg, okayg;
     public Sprite goods, bads, okays;
@@ -57,7 +57,8 @@ public class GameManager : Singleton<GameManager>
 
     public void StartTimer()
     {
-        countdownTimer = 300;  // Reset to 5 minutes
+        // Reset to 5 minutes
+        countdownTimer = 300;  
         timerRunning = true;
         OnGameStart?.Invoke();
     }
@@ -67,16 +68,15 @@ public class GameManager : Singleton<GameManager>
         if (countdownTimer > 0)
         {
             countdownTimer -= Time.deltaTime;
-            int minutes = Mathf.FloorToInt(countdownTimer / 60);  // Calculate minutes
-            int seconds = Mathf.FloorToInt(countdownTimer % 60);  // Calculate seconds
-
-            // Update the TMP text to show the remaining time
+            int minutes = Mathf.FloorToInt(countdownTimer / 60); 
+            int seconds = Mathf.FloorToInt(countdownTimer % 60);  
+           //shows time remaining
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
         else
         {
             timerRunning = false;
-            endScreen();  // Call end screen when time is up
+            endScreen();  
         }
     }
 

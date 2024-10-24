@@ -4178,10 +4178,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'mushroom burgers     tofu + buns + beans
+  m_text: 'You are a professional chef and will need to remember these off by heart!
 
-    salad                eggplant
-    + mushroom + carrots
+
+    mushroom
+    burgers     tofu + buns + beans
+
+    salad                eggplant + mushroom
+    + carrots
 
     mapo tofu            tofu + eggplant + mushrooms
 
@@ -4232,8 +4236,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.41
-  m_fontSizeBase: 19.41
+  m_fontSize: 15.76
+  m_fontSizeBase: 15.76
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
